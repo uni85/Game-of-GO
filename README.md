@@ -1,6 +1,6 @@
 # 9x9 Go Web Game (vs. Computer AI)
 
-go-web-game/
+[go-web-game/
 ├── .gitignore
 ├── LICENSE
 ├── README.md
@@ -12,7 +12,7 @@ go-web-game/
 │   ├── css/
 │   │   └── style.css
 │   └── js/
-│       └── script.js
+│       └── script.js](https://github.com/uni85/Game-of-GO/blob/main/)
 
 A lightweight, zero-dependency implementation of the traditional board game Go (Weiqi) played on a 9x9 grid against a heuristic automated opponent. Built natively using HTML5, CSS3, and Vanilla JavaScript.
 
