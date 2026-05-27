@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4ebd0; /* Traditional warm wooden background tone */
+}
+
+h2 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#game {
+    display: grid;
+    /* Creates a perfect 9x9 grid layout */
+    grid-template-columns: repeat(9, 45px);
+    grid-template-rows: repeat(9, 45px);
+    background-color: #deb887; /* Board wood color */
+    padding: 10px;
+    border: 3px solid #5c4033;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.cell {
+    width: 45px;
+    height: 45px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* Horizontal line cross */
+.cell::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: #5c4033;
+    top: 50%;
+    left: 0;
+    z-index: 1;
+}
+
+/* Vertical line cross */
+.cell::after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    background-color: #5c4033;
+    top: 0;
+    left: 50%;
+    z-index: 1;
+}
+
+/* Ensure stones sit on top of the grid lines */
+.stone {
+    position: relative;
+    z-index: 2;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    box-shadow: inset -3px -3px 5px rgba(0,0,0,0.3), 1px 2px 4px rgba(0,0,0,0.4);
+}
+
+/* The physical Go stone styling */
+.stone {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    box-shadow: inset -3px -3px 5px rgba(0,0,0,0.3), 1px 2px 4px rgba(0,0,0,0.4);
+    animation: drop 0.15s ease-out;
+}
+
+.black-stone {
+    background: radial-gradient(circle at 30% 30%, #444, #111);
+}
+
+.white-stone {
+    background: radial-gradient(circle at 30% 30%, #fff, #ddd);
+    border: 1px solid #ccc;
+}
+
+.controls {
+    margin-top: 20px;
+}
+
+#passBtn {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #5c4033;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#passBtn:hover {
+    background-color: #3d2b22;
+}
+
+@keyframes drop {
+    from { transform: scale(1.2); opacity: 0.5; }
+    to { transform: scale(1); opacity: 1; }
+}
