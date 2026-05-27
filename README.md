@@ -5,8 +5,6 @@ A lightweight, zero-dependency implementation of the traditional board game Go (
 ## Live Demo
 [Play the game live here!](https://uni85.github.io/Game-of-GO/)
 
-*(Note: Ensure you have enabled GitHub Pages in your repository settings to make this live link active!)*
-
 ## Features
 - **Dynamic Board Generation:** Automatically scales and renders a 9x9 intersection layout.
 - **Traditional Grid Styling:** Uses smart absolute-positioned layout tricks to ensure stones snap accurately onto line intersections instead of containment squares.
