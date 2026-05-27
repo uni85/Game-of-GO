@@ -225,4 +225,4 @@ passBtn.addEventListener('click', () => {
 });
 
 // Run Initialization
-createBoard();s
+createBoard();
