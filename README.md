@@ -3,7 +3,7 @@
 A lightweight, zero-dependency implementation of the traditional board game Go (Weiqi) played on a 9x9 grid against a heuristic automated opponent. Built natively using HTML5, CSS3, and Vanilla JavaScript.
 
 ## Live Demo
-[Play the game live here!]([https://uni85.github.io/Game-of-GO/](https://uni85.github.io/Game-of-GO-against-AI_AIGOO/))
+[Play the game live here!]([https://uni85.github.io/Game-of-GO-against-AI_AIGOO/])
 
 ## Features
 - **Dynamic Board Generation:** Automatically scales and renders a 9x9 intersection layout.
