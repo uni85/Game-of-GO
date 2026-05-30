@@ -4,14 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>9x9 Go Game Board</title>
-    
     <link rel="icon" type="image/png" href="assets/images/favigo.png">
-    
-    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="src/css/styles.css">
 </head>
 <body>
 
-    <h2 id="status">Black's Turn (Placing Stones)</h2>
+    <h2 id="status">Choose an Opening Formation to Begin:</h2>
+    
+    <div class="formations">
+        <button onclick="loadFormation('blank')">Clear / Blank Board</button>
+        <button onclick="loadFormation('sanrensei')">Sanrensei (Three Star Points)</button>
+        <button onclick="loadFormation('shusaku')">Shusaku Opening</button>
+        <button onclick="loadFormation('cross')">Cross-Opening (Fighting Layout)</button>
+    </div>
     
     <div id="game"></div>
 
