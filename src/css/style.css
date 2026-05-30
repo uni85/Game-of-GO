@@ -106,6 +106,32 @@ h2 {
     background-color: #3d2b22;
 }
 
+/* Opening dashboard button container layout */
+.formations {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.formations button {
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: bold;
+    background-color: #deb887;
+    color: #5c4033;
+    border: 2px solid #5c4033;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.formations button:hover {
+    background-color: #5c4033;
+    color: #f4ebd0;
+}
+
 @keyframes drop {
     from { transform: scale(1.2); opacity: 0.5; }
     to { transform: scale(1); opacity: 1; }
