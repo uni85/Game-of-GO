@@ -130,7 +130,7 @@ h2 {
 .formations button:hover {
     background-color: #5c4033;
     color: #f4ebd0;
-}
+} 
 
 @keyframes drop {
     from { transform: scale(1.2); opacity: 0.5; }
