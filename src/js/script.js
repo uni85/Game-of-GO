@@ -127,7 +127,6 @@ function computerTurn() {
 
             let score = 0;
 
-            // Deep copy board state to safely simulate without breaking references
             let simBoard = JSON.parse(JSON.stringify(boardState));
             simBoard[r][c] = 'white';
             
@@ -216,6 +215,43 @@ function createBoard() {
     }
 }
 
+// 9. Formation Preset Engine Data Router (Attached directly to window scope)
+window.loadFormation = function(type) {
+    boardState = Array(BOARD_SIZE).fill(null).map(() => Array(BOARD_SIZE).fill(null));
+    previousBoardStateString = ""; 
+    currentPlayer = 'black';       
+    isGameActive = true;
+
+    if (type === 'sanrensei') {
+        boardState[2][2] = 'black';
+        boardState[4][2] = 'black';
+        boardState[6][2] = 'black';
+        boardState[2][6] = 'white';
+        boardState[6][6] = 'white';
+        statusDisplay.textContent = "Sanrensei loaded. Black's Turn (Your Move)";
+    } 
+    else if (type === 'shusaku') {
+        boardState[2][2] = 'black';
+        boardState[2][3] = 'black';
+        boardState[6][2] = 'black';
+        boardState[6][6] = 'white';
+        boardState[3][6] = 'white';
+        statusDisplay.textContent = "Shusaku Opening loaded. Black's Turn (Your Move)";
+    } 
+    else if (type === 'cross') {
+        boardState[2][2] = 'black';
+        boardState[6][6] = 'black';
+        boardState[2][6] = 'white';
+        boardState[6][2] = 'white';
+        statusDisplay.textContent = "Cross-Opening loaded. Black's Turn (Your Move)";
+    } 
+    else {
+        statusDisplay.textContent = "Black's Turn (Your Move)";
+    }
+
+    renderBoard();
+};
+
 // User Pass setup interaction
 passBtn.addEventListener('click', () => {
     if (currentPlayer !== 'black') return;
@@ -224,53 +260,6 @@ passBtn.addEventListener('click', () => {
     setTimeout(computerTurn, 600);
 });
 
-// 9. Formation Preset Engine Data Router
-function loadFormation(type) {
-    // Completely reset board matrix data states back to empty spaces
-    boardState = Array(BOARD_SIZE).fill(null).map(() => Array(BOARD_SIZE).fill(null));
-    previousBoardStateString = ""; // Clear execution memory history logs
-    currentPlayer = 'black';       // Black resets to go first
-    isGameActive = true;
-
-    if (type === 'sanrensei') {
-        // Sanrensei: Classic side control strategy along line index 2 (the 3rd line)
-        boardState[2][2] = 'black';
-        boardState[4][2] = 'black';
-        boardState[6][2] = 'black';
-        
-        // Automated computer response stones layout adjustments
-        boardState[2][6] = 'white';
-        boardState[6][6] = 'white';
-        statusDisplay.textContent = "Sanrensei loaded. Black's Turn (Your Move)";
-    } 
-    else if (type === 'shusaku') {
-        // Shusaku: Traditional solid corner framework setups
-        boardState[2][2] = 'black';
-        boardState[2][3] = 'black';
-        boardState[6][2] = 'black';
-        
-        boardState[6][6] = 'white';
-        boardState[3][6] = 'white';
-        statusDisplay.textContent = "Shusaku Opening loaded. Black's Turn (Your Move)";
-    } 
-    else if (type === 'cross') {
-        // Cross-Opening: Forces direct early combat across splitting quadrants
-        boardState[2][2] = 'black';
-        boardState[6][6] = 'black';
-        
-        boardState[2][6] = 'white';
-        boardState[6][2] = 'white';
-        statusDisplay.textContent = "Cross-Opening loaded. Black's Turn (Your Move)";
-    } 
-    else {
-        // Standard blank vanilla board setup fallback routing
-        statusDisplay.textContent = "Black's Turn (Your Move)";
-    }
-
-    // Refresh display layout on screen
-    renderBoard();
-}
-
-// Replace the lonely old 'createBoard();' line at the end with this initialization loop sequence:
+// Run Initialization
 createBoard();
-loadFormation('blank'); // Instantly starts the initial screen state as clean/blank
+window.loadFormation('blank');
