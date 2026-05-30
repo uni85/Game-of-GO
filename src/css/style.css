@@ -3,12 +3,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
+    justify-content: flex-start; /* FIX: allows content to stack naturally top-to-bottom */
+    min-height: 100vh;           /* FIX: ensures background scales but doesn't crush items */
+    padding: 20px 0;             /* FIX: gives top and bottom breathing room */
     margin: 0;
-    background-color: #f4ebd0; /* Traditional warm wooden background tone */
+    background-color: #f4ebd0; 
 }
-
 h2 {
     margin-bottom: 15px;
     color: #333;
